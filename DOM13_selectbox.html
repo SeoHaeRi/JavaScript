@@ -118,8 +118,11 @@
             myBtn.classList.toggle("on");
         })
         myUl.addEventListener('click', function (event) {
-            myBtn.innerText = event.target.innerText;
-            myBtn.classList.toggle("on");
+            //가장자리 클릭 시 모든 언어 출력 방지
+            if (event.target.nodeName === "BUTTON") {
+                myBtn.textContent = event.target.textContent;
+                myBtn.classList.remove('on');
+            }
         })
     </script>
 </body>
