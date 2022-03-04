@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <title>DOM test</title>
+    <style>
+        #d1 {
+            margin-left: 10px;
+            background-color: rgb(173, 216, 230);
+            height: 20px;
+            width: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="d1">&nbsp;</div>
+
+    <form action="">
+        <p>
+            <button type="button" class="styleBtn">getStyle</button>
+            bg-color<input id="t1" type="text" />
+        </p>
+    </form>
+
+    <div>
+        <button type="button" class="addBtn">노드 추가</button>
+        <ul>
+            <li>list1</li>
+            <li>list1</li>
+            <li>list1</li>
+        </ul>
+    </div>
+    <script>
+        const btn1 = document.querySelector(".styleBtn");
+        btn1.addEventListener("click", () => {
+            const div = document.getElementById("d1");
+            const bgColorBtn = document.getElementById("t1");
+            div.style.backgroundColor = bgColorBtn.value;
+        })
+
+        const btn2 = document.querySelector(".addBtn");
+        btn2.addEventListener("click", () => {
+            const list = document.querySelectorAll("li");
+            list.forEach(i => {
+                var li = document.createElement("li");
+                li.textContent = "list2";
+                i.appendChild(li);
+            });
+        })
+
+    </script>
+</body>
+
+</html>
